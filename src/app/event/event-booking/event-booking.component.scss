@@ -1,0 +1,94 @@
+@import '../../../styles.scss';
+
+.book {
+    &__header {
+        &__title {
+            text-align: center;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 50px;
+            margin: 0px;
+            color: $contrast-color;
+            margin-bottom: 40px;
+        }
+    }
+
+    mat-divider {
+        background: $contrast-color;
+        margin-bottom: 15px;
+    }
+
+    &__details {
+        &__name, &__seats {
+            color: $contrast-color;
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        &__form {
+            width: 50%;
+            margin: 0% 25%;
+            margin-top: 40px;
+
+            &__attendees {
+                .bd__form__attendees__title {
+                    color: $contrast-color;
+                    text-align: center;
+                    font-size: 20px;
+                    margin-bottom: 15px;
+                }
+            }
+
+            mat-form-field {
+                width: 100%;
+                margin-bottom: 15px;
+
+                input {
+                    color: $contrast-color;
+                }
+
+                mat-icon {
+                    color: $contrast-color;
+                }
+
+                mat-select {
+                    mat-option {
+                        min-width: 0px;
+                        color: $background-color;
+                    }
+                }
+            }
+
+            .book__details__form__btn {
+                text-align: center;
+
+                .bd__form__btn-cancel, .bd__form__btn-submit {
+                    padding: 0px 5%;
+                    background-color: $contrast-color;
+                    color: #fff;
+                }
+
+                .bd__form__btn-cancel {
+                    background-color: $danger-color;
+                    margin-right: 15px;
+                }
+
+                .bd__form__btn-disable {
+                    opacity: 0.3;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .book {
+        &__details {
+            &__form {
+                width: 80%;
+                margin: 0px 10%;
+            }
+        }
+    }
+}

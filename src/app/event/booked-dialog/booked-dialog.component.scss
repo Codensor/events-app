@@ -1,0 +1,20 @@
+@import '../../../styles.scss';
+
+.booked-dialog {
+    &__title {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    &__content {
+        font-size: 16px;
+    }
+
+    &__button {
+        button {
+            width: 100%;
+            background: $contrast-color;
+            color: #fff;
+        }
+    }
+}

@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$background-color: #222629;
+$contrast-color: #86c232;
+$danger-color: #de2a2a;
+
+body {
+    background-color: $background-color;
+    padding: 2vw;
+}
+
+.mat-form-field-ripple {
+    background-color: $contrast-color !important;
+}
+
+.matInput-disable-ripple {
+    display: none !important;
+}
+
+.mat-form-field-type-mat-native-select {
+    color: $contrast-color !important;
+}
+
+.mat-form-field-underline {
+    background-color: $contrast-color !important;
+}
+
+.mat-form-field-label {
+    color: $contrast-color !important;
+}
+
+.mat-select-value, .mat-select-arrow {
+    color: $contrast-color;
+}

@@ -1,0 +1,139 @@
+@import '../../../styles.scss';
+
+.list {
+    &__header {
+        &__title {
+            text-align: center;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 50px;
+            margin: 0px;
+            color: $contrast-color;
+            margin-bottom: 40px;
+        }
+    }
+
+    &__search {
+        width: 50%;
+        margin: 0% 25%;
+        margin-bottom: 15px;
+
+        mat-form-field {
+            width: 90%;
+            margin: 0% 5%;
+
+            input {
+                color: $contrast-color;
+            }
+
+            mat-icon {
+                color: $contrast-color;
+            }
+        }
+    }
+
+    mat-divider {
+        background: $contrast-color;
+        margin-bottom: 15px;
+    }
+
+    &__cards {
+        &__card {
+            display: inline-block;
+            width: 23%;
+            min-width: 129px;;
+            margin: 1%;
+            box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+
+            mat-card {
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                box-shadow: unset;
+
+                mat-card-title {
+                    font-size: 2vw;
+                }
+
+                mat-card-content {
+                    font-size: 1.5vw;
+
+                    span {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+
+            a {
+                width: 100%;
+                color: white;
+            }
+
+            &__book {
+                background: $contrast-color;
+                border-top-left-radius: 0px !important;
+                border-top-right-radius: 0px !important;
+            }
+
+            &__sold {
+                background: $danger-color;
+                border-top-left-radius: 0px !important;
+                border-top-right-radius: 0px !important;
+                pointer-events: none;
+            }
+        }
+    }
+
+    &__empty {
+        color: $contrast-color;
+        font-size: 25px;
+        text-align: center;
+        margin-top: 15%;
+    }
+}
+
+@media only screen and (max-width: 610px) {
+    .list {
+        &__cards {
+            &__card {
+                width: 44%;
+                margin: 3%;
+
+                mat-card {
+                    mat-card-title {
+                        font-size: 4vw;
+                    }
+
+                    mat-card-content {
+                        font-size: 2.5vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .list {
+        &__search {
+            width: 80%;
+            margin: 0% 10%;
+        }
+
+        &__cards {
+            &__card {
+                width: 90%;
+                margin: 5%;
+
+                mat-card {
+                    mat-card-title {
+                        font-size: 6vw;
+                    }
+
+                    mat-card-content {
+                        font-size: 4.5vw;
+                    }
+                }
+            }
+        }
+    }
+}

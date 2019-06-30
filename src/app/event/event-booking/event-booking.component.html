@@ -1,0 +1,68 @@
+<div class="book">
+    <header class="book__header">
+        <h1 class="book__header__title">Book Tickets</h1>
+    </header>
+    <mat-divider></mat-divider>
+    <section class="book__details">
+        <div class="book__details__name">Event Name: {{eventName}}</div>
+        <div class="book__details__seats">Number of available seats: {{eventSeats}}</div>
+        <form class="book__details__form" [formGroup]="form">
+            <mat-form-field>
+                <input matInput placeholder="Name" pattern="[a-zA-Z ]*" formControlName="name" autocomplete="off">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-error *ngIf="form.get('name').hasError('required')">
+                    Please enter your name
+                </mat-error>
+                <mat-error *ngIf="form.get('name').hasError('pattern')">
+                    Only letters and spaces are allowed
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="form.get('email').hasError('pattern')">
+                    Invalid email
+                </mat-error>
+                <mat-error *ngIf="form.get('email').hasError('required')">
+                    Please enter your email
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Phone Number" pattern="[0-9]*" formControlName="phone" autocomplete="off">
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-error *ngIf="form.get('phone').invalid">
+                    Please enter 10 digit phone number
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                    <mat-label>Number of seats</mat-label>
+                <mat-select [value]="seatsRequired[0].toString()" (selectionChange)="setSeatRequested($event)">
+                    <mat-option *ngFor="let seat of seatsRequired" value="{{seat}}">{{seat}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="book__details__form__attendees" *ngIf="seatsRequested.length > 0">
+                <div class="bd__form__attendees__title">Name of other Attendees</div>
+                <mat-form-field *ngFor="let seat of seatsRequested">
+                    <input matInput placeholder="Name" pattern="[a-zA-Z ]*" formControlName="{{'name' + seat}}" autocomplete="off">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <mat-error *ngIf="ErrorCheck(seat) === 'required'">
+                        Please enter the name of Attendee {{seat}}
+                    </mat-error>
+                    <mat-error *ngIf="ErrorCheck(seat) === 'pattern'">
+                        Only letters and spaces are allowed
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="book__details__form__btn">
+                <button type="button" mat-flat-button class="bd__form__btn-cancel" routerLink="/eventListing"
+                [ngClass]="{'bd__form__btn-disable': isCancelDisabled}">
+                    Cancel
+                </button>
+                <button mat-flat-button class="bd__form__btn-submit"
+                [ngClass]="{'bd__form__btn-disable': form.status === 'INVALID'}" (click)="bookEvent()">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </section>
+</div>

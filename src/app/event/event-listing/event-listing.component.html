@@ -1,0 +1,29 @@
+<div class="list">
+    <header class="list__header">
+        <h1 class="list__header__title">Events</h1>
+    </header>
+    <form class="list__search">
+        <mat-form-field>
+            <input matInput placeholder="SEARCH EVENTS" (input)="filterEvents($event)" autocomplete="off">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </form>
+    <mat-divider></mat-divider>
+    <section class="list__cards" *ngIf="filteredEvents.length > 0">
+        <article class="list__cards__card" *ngFor="let event of filteredEvents">
+            <mat-card>
+                <mat-card-title>{{event.name}}</mat-card-title>
+                <img mat-card-image src="{{event.img}}" alt="">
+                <mat-card-content>
+                    <span>Date: {{event.date | date: 'dd MMM yyyy'}}</span>
+                    <span>seats: {{event.seats}}</span>
+                </mat-card-content>
+            </mat-card>
+            <a class="list__cards__card__book" mat-flat-button *ngIf="event.seats > 0" routerLink="/eventBooking/{{event.name}}/{{event.seats}}">Book Now</a>
+            <a class="list__cards__card__sold" mat-flat-button *ngIf="event.seats === 0">Sold Out</a>
+        </article>
+    </section>
+    <section class="list__empty" *ngIf="filteredEvents.length === 0">
+        <div>No results found!</div>
+    </section>
+</div>

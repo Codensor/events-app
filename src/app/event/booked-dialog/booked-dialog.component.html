@@ -1,0 +1,12 @@
+<div class="booked-dialog">
+    <h1 class="booked-dialog__title" mat-dialog-title>Booking Successful</h1>
+    <div class="booked-dialog__content" mat-dialog-content>
+        <p>Event Name: {{data.name}}</p>
+        <p>Number of seats booked: {{data.seats}}</p>
+        <p>Name of the Attendees:</p>
+        <p class="booked-dialog__content__attendees" *ngFor="let name of data.attendees; let i = index">{{i + 1}}. {{name}}</p>
+    </div>
+    <div class="booked-dialog__button" mat-dialog-actions>
+        <button mat-button (click)="closeDialog()">OK</button>
+    </div>
+</div>
